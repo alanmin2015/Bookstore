@@ -1,0 +1,72 @@
+[
+  { 
+      "id": 1, 
+      "name": "To Kill a Mockingbird", 
+      "price": "15.99", 
+      "category": "Classic Literature",
+      "description": "A powerful tale of racial injustice in the American South, seen through the eyes of young Scout Finch."
+  },
+  { 
+      "id": 2, 
+      "name": "1984", 
+      "price": "12.50", 
+      "category": "Dystopian Fiction",
+      "description": "George Orwell's profound dystopia that explores surveillance and totalitarianism in a bleak future."
+  },
+  { 
+      "id": 3, 
+      "name": "Pride and Prejudice", 
+      "price": "18.00", 
+      "category": "Romantic Novel",
+      "description": "Jane Austen's classic romance that critically examines societal norms and the pursuit of suitable marriage."
+  },
+  { 
+      "id": 4, 
+      "name": "The Great Gatsby", 
+      "price": "14.20", 
+      "category": "American Classic",
+      "description": "A story of impossible love, dreams, and tragedy set during the opulent Roaring Twenties."
+  },
+  { 
+      "id": 5, 
+      "name": "The Catcher in the Rye", 
+      "price": "13.50", 
+      "category": "Coming-of-Age",
+      "description": "J.D. Salinger's novel about teenage rebellion and alienation that has become a mid-20th-century classic."
+  },
+  { 
+      "id": 6, 
+      "name": "The Hobbit", 
+      "price": "17.80", 
+      "category": "Fantasy",
+      "description": "Bilbo Baggins' adventure to win a share of the treasure guarded by Smaug the dragon, a prelude to 'The Lord of the Rings'."
+  },
+  { 
+      "id": 7, 
+      "name": "Moby Dick", 
+      "price": "16.00", 
+      "category": "Adventure Fiction",
+      "description": "Herman Melville's epic tale of Captain Ahab's obsessive quest to kill the white whale, Moby Dick."
+  },
+  { 
+      "id": 8, 
+      "name": "The Lord of the Rings", 
+      "price": "22.90", 
+      "category": "Epic Fantasy",
+      "description": "Tolkien's masterpiece about the epic quest to destroy the One Ring, which chronicles the great War of the Ring."
+  },
+  { 
+      "id": 9, 
+      "name": "Fahrenheit 451", 
+      "price": "9.99", 
+      "category": "Science Fiction",
+      "description": "Ray Bradbury's futuristic novel where books are banned and 'firemen' burn any that are found."
+  },
+  { 
+      "id": 10, 
+      "name": "Hamlet", 
+      "price": "10.95", 
+      "category": "Tragedy",
+      "description": "Shakespeare's tragedy of the Prince of Denmark, who seeks revenge against his uncle, who has murdered Hamlet's father."
+  }
+]
