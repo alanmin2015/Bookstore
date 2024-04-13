@@ -39,7 +39,7 @@ const TableFilter = ({ filterGroup, setCurrentPage = null, selectedGenre, setSel
        
         let value = null;
         const pathGenre = selectedGenre.find(singleGenre => singleGenre.hasOwnProperty(filterPath))
-        if (pathGenre) value = filterOptions.filter(option => pathGenre[filterPath].some(singlePathGenre => singlePathGenre.id == option.id))
+        if (pathGenre) value = filterOptions.filter(option => pathGenre[filterPath].some(singlePathGenre => singlePathGenre.id === option.id))
         return value
     };
 

@@ -13,10 +13,10 @@ const BookDetailModal = ({
   bookID,
   actionType,
   bookData,
-  NewId,
 }) => {
   const dispatch = useDispatch();
 
+  //swtich the modal title and button text based on it is edit or add new book
   const title = actionType === "edit" ? "Edit Book" : "Add Book";
   const buttonLabel = actionType === "edit" ? "Save Changes" : "Add New Book";
 
@@ -24,7 +24,7 @@ const BookDetailModal = ({
     if (actionType === "edit") {
       dispatch(updateBook(bookID, bookInfo));
     } else if (actionType === "add") {
-      const newBook = { ...bookInfo, id: NewId };
+      const newBook = { ...bookInfo, id: bookID };
       dispatch(createBook(newBook));
     }
     setShow(false);

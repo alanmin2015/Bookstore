@@ -17,86 +17,14 @@ function getNestedProperty(obj, path) {
   return property;
 }
 
-/*
-selectedGenre
-[
-    {
-        "project": [
-            {
-                "id": 73,
-                "label": "037-23 MC FRA:Royal Canin SC Attack Plan 037-23 EUR",
-                "value": "037-23 MC FRA:Royal Canin SC Attack Plan 037-23 EUR"
-            }
-        ]
-    },
-    {
-        "resource": [
-            {
-                "id": 1,
-                "label": "Ching Yip",
-                "value": "Ching Yip"
-            },
-            {
-                "id": 9,
-                "label": "Daheng Liu",
-                "value": "Daheng Liu"
-            }
-        ]
-    }
-]
-oneRowData
-{
-    "8": {
-        "id": null,
-        "value": 0
-    },
-    "9": {
-        "id": null,
-        "value": 0
-    },
-    ......
-    "id": 69,
-    "resource": {
-        "id": 1,
-        "value": "Ching Yip"
-    },
-    "project": {
-        "id": 514,
-        "value": "046-21 Eli Lilly:Global Warehousing Strategy 046-21"
-    }
-}
-genreCellData
-{
-    "id": 1,
-    "value": "Ching Yip"
-}
-genreList
-[
-    {
-        "id": 1,
-        "label": "Ching Yip",
-        "value": "Ching Yip"
-    },
-    {
-        "id": 9,
-        "label": "Daheng Liu",
-        "value": "Daheng Liu"
-    }
-]
-*/
 export function applyFilter(selectedGenre, completeBodyData) {
 
-  //  console.log("tableUtil - applyFilter - selectedGenre", selectedGenre);
-  //  console.log("tableUtil - applyFilter - completeBodyData", completeBodyData);
   return completeBodyData.filter((oneRowData) => {
     let boolean_array = [];
     boolean_array = selectedGenre.reduce((array, singleSelectedGenre) => {
-      /* pathName = 'resource' OR pathName = 'project' */
       const pathName = Object.keys(singleSelectedGenre)[0];
      
       let genreCellData = getNestedProperty(oneRowData, pathName);
-
-      /* genreList is an array with genre info */
       const genreList = Object.values(singleSelectedGenre)[0];
 
       let resourceOrProjectID = null;
@@ -110,43 +38,20 @@ export function applyFilter(selectedGenre, completeBodyData) {
       if (genreCellData )
      
         isMatching =
-          genreList.length == 0 ||
+          genreList.length === 0 ||
 
           genreList.some(
             (singleGenreData) => {
-              return singleGenreData.id == resourceOrProjectID;
+              return singleGenreData.id === resourceOrProjectID;
             }
           );
-       
 
-          
-      //   console.log("tableUtil - applyFilter - pathName", pathName);
-      //   console.log("tableUtil - applyFilter - genreCellData", genreCellData);
-      // console.log("tableUtil - applyFilter - isMatching", isMatching );
-      return array.concat(isMatching);
     }, []);
     return boolean_array.every((v) => v === true);
   });
 }
 
-function prepareSortData(item, sortPath) {
-  const value = item[sortPath];
-  if (!isNaN(value)) {
-    return parseFloat(value);
-  } else {
-    return String(value).toLowerCase();
-  }
-}
-
 export function applySort(filteredBodyData, sortColumn) {
-  // _.orderBy(
-  //   data,
-  //   (item) => prepareSortData(item, sortColumn.path),
-  //   sortColumn.order
-  // );
-
-  // console.log("tableUtil - applySort - sortColumn", sortColumn);
-
   return _.orderBy(filteredBodyData, sortColumn.path, sortColumn.order);
 }
 

@@ -13,7 +13,6 @@ const TableBody = ({
   selectedRow,
   setSelectedRow,
 }) => {
-  //const user = useSelector((state) => state.generic.currentUser);
   {
     /********************************************* handle unit cell change *********************************************/
   }
@@ -37,7 +36,7 @@ const TableBody = ({
 
     const complet_body_data = Array.from(completeBodyData);
     const rowIndex = complet_body_data.findIndex(
-      (element) => element.id == rowID
+      (element) => element.id === rowID
     );
 
     complet_body_data[rowIndex] = {
@@ -98,7 +97,7 @@ const TableBody = ({
               />
             ) : (
               <>
-                {customContent.formInfo.type == "multiselect"
+                {customContent.formInfo.type === "multiselect"
                   ? contentString != null
                     ? contentString
                     : null

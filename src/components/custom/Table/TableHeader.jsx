@@ -23,15 +23,12 @@ const TableHeader = ({ headerData, sortColumn, setSortColumn }) => {
     {/********************************************* render header ******************************************************/ }
     const renderSortIcon = (column) => {
         if (column.path) {
-            if (!(sortColumn.path == column.path || sortColumn.path == column.sortPath)) return null;
+            if (!(sortColumn.path === column.path || sortColumn.path === column.sortPath)) return null;
             if (sortColumn.order === "asc")
                 return <FontAwesomeIcon icon={faSortUp} />;
             return <FontAwesomeIcon icon={faSortDown} />;
         }
     };
-
-    // console.log('TableHeader - - headerData', headerData)
-    // console.log('TableHeader - - sortColumn', sortColumn)
 
     return (
         <thead  >

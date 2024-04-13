@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import { toast } from "react-toastify";
 import { Container } from "react-bootstrap";
 import { MdDelete } from "react-icons/md";
@@ -34,6 +34,7 @@ const Bookstore = () => {
 
   const BookList = useSelector((state) => state.bookstore.BookList);
 
+    //useMemo to hold the current data of clicked book and pass it to the edit book modal to present 
   const currentBookData = useMemo(() => {
     if (actionType === "edit" && modalBookID !== null) {
       return BookList.find((book) => book.id === modalBookID) || {};
@@ -41,6 +42,7 @@ const Bookstore = () => {
     return {};
   }, [BookList, modalBookID, actionType]);
 
+  //create the new book id as we don`t have an backend
   const NewId = useMemo(
     () => BookList.reduce((max, book) => Math.max(book.id, max), 0) + 1,
     [BookList]
@@ -49,7 +51,7 @@ const Bookstore = () => {
   const handleAddBook = () => {
     setShowModal(true);
     setActionType("add");
-    setModalBookID(null);
+    setModalBookID(NewId);
   };
 
   const columns = [
@@ -125,7 +127,6 @@ const Bookstore = () => {
         bookID={modalBookID}
         actionType={actionType}
         bookData={currentBookData}
-        NewId={NewId}
       />
       <ToastContainer />
     </>

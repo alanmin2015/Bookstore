@@ -51,6 +51,7 @@ export const updateBook = (bookID,bookInfo) => {
       dispatch(
         booksActions.updateBook({ bookID: bookID,updateBook: bookInfo })
       );
+      toast.success("Updating book succeed!");
     } catch (error) {
       toast.error("Updating book has something wrong!");
     }
